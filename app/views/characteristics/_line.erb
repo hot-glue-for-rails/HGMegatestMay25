@@ -1,0 +1,9 @@
+<%= turbo_frame_tag "__#{ dom_id(characteristic) }" do  %>
+  <div class='row hg-row' data-id='<%= characteristic.id %>' data-edit='false'>
+    <%= render partial: 'characteristics/show', locals: { characteristic: characteristic } %>
+  </div>
+<% end %>
+
+
+
+

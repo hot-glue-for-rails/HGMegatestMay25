@@ -1,0 +1,91 @@
+<div class="row">
+  <div class='col-md-1 cell--thing--person_id' >  
+    <span class='<%= "alert alert-danger" if thing.errors.details.keys.include?(:person) %>'  >
+        <%= f.collection_select(:person_id, Person.all, :id, :name, { prompt: true, selected: thing.person_id }, class: 'form-control') %>
+      <br />
+      
+      <label class='text-muted small form-text' for=''>Person</label>
+    </span>
+   
+  </div>
+  <div class='col-md-1 cell--thing--bbb' >  
+    <span class='<%= "alert alert-danger" if thing.errors.details.keys.include?(:bbb) %>'  >
+      <span class='form-check '>
+        <%= f.radio_button(:bbb, '0', checked: thing.bbb  ? '' : 'checked', class: 'form-check-input') %>
+        <%= f.label(:bbb, value: 'No', for: 'thing_bbb_0') %>
+       <br /> <%= f.radio_button(:bbb, '1',  checked: thing.bbb  ? 'checked' : '' , class: 'form-check-input') %>
+        <%= f.label(:bbb, value: 'Yes', for: 'thing_bbb_1') %>
+      </span> 
+      
+      <label class='text-muted small form-text form-check-label' for='thing_bbb'>Bbb</label>
+    </span>
+   
+  </div>
+  <div class='col-md-1 cell--thing--ccc' >  
+    <span class='<%= "alert alert-danger" if thing.errors.details.keys.include?(:ccc) %>'  >
+      <%= date_field_localized(f, :ccc, thing.ccc, label:  'Ccc'  ) %>
+      <label class='text-muted small form-text' for=''>Ccc</label>
+    </span>
+   
+  </div>
+  <div class='col-md-1 cell--thing--ddd' >  
+    <span class='<%= "alert alert-danger" if thing.errors.details.keys.include?(:ddd) %>'  >
+      <%= f.datetime_field( :ddd, value: thing.ddd && thing.ddd.in_time_zone(current_timezone), class: 'form-control'  ) %><%= current_timezone %>
+      <label class='text-muted small form-text' for=''>Ddd</label>
+    </span>
+   
+  </div>
+  <div class='col-md-1 cell--thing--eee' >  
+    <span class='<%= "alert alert-danger" if thing.errors.details.keys.include?(:eee) %>'  >
+      <%= f.collection_select(:eee, enum_to_collection_select(Thing.eee_enum_labels), :key, :value, {include_blank: true, selected: thing.eee }, class: 'form-control'  )%>
+      <label class='text-muted small form-text' for=''>Eee</label>
+    </span>
+   
+  </div>
+  <div class='col-md-1 cell--thing--fff' >  
+    <span class='<%= "alert alert-danger" if thing.errors.details.keys.include?(:fff) %>'  >
+        <%= f.text_field :fff, value: thing.fff, autocomplete: 'off', size: 5, class: 'form-control', type: '' %>
+       
+      
+      <label class='text-muted small form-text' for=''>Fff</label>
+    </span>
+   
+  </div>
+  <div class='col-md-1 cell--thing--iii' >  
+    <span class='<%= "alert alert-danger" if thing.errors.details.keys.include?(:iii) %>'  >
+        <%= f.text_field :iii, value: thing.iii, autocomplete: 'off', size: 4, class: 'form-control', type: 'number' %>
+       
+      
+      <label class='text-muted small form-text' for=''>Iii</label>
+    </span>
+   
+  </div>
+  <div class='col-md-1 cell--thing--sss' >  
+    <span class='<%= "alert alert-danger" if thing.errors.details.keys.include?(:sss) %>'  >
+        <%= f.text_field :sss, value: thing.sss, autocomplete: 'off', size: 40, class: 'form-control', type: '' %>
+       
+      
+      <label class='text-muted small form-text' for=''>Sss</label>
+    </span>
+   
+  </div>
+  <div class='col-md-1 cell--thing--ttt' >  
+    <span class='<%= "alert alert-danger" if thing.errors.details.keys.include?(:ttt) %>'  >
+      <%= f.text_area :ttt, class: 'form-control', autocomplete: 'off', cols: 40, rows: '5' %>
+      <label class='text-muted small form-text' for=''>Ttt</label>
+    </span>
+   
+  </div>
+  <div class='col-md-1 cell--thing--mmm' >  
+    <span class='<%= "alert alert-danger" if thing.errors.details.keys.include?(:mmm) %>'  >
+      <%= time_field_localized(f, :mmm, thing.mmm, label: 'Mmm') %>
+      <label class='text-muted small form-text' for=''>Mmm</label>
+    </span>
+   
+  </div>
+
+  <div class="col-md-2">
+    <%= link_to "Cancel", things_path,  {class: "btn btn-secondary"} %>
+    <%= f.submit "Save", class: "btn btn-primary pull-right" %>
+  </div>
+</div>

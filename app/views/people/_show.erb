@@ -1,0 +1,24 @@
+<div class='hg-col col-sm-1 person--name'> <%= person.name %></div>
+<div class='hg-col col-sm-1 person--characteristics'> <%= person.characteristics.collect(&:label).join(", ") %></div>
+
+
+
+
+
+
+
+
+
+<div class=" scaffold-line-buttons col-md-2" >
+  
+
+  
+    <%= form_with url: person_path(person), html: {data: {'turbo-confirm': "Are you sure you want to delete #{ person.name }?" }, style: "display: inline-block;"}, method: :delete do |f| %>
+      <%= f.submit "Delete".html_safe,  class: "delete-person-button btn btn-primary btn-sm" %>
+    <% end %>
+  
+
+  
+  <%= link_to "Edit ".html_safe, edit_person_path(person), disable_with: "Loading...", class: "edit-person-button btn btn-primary btn-sm" %>
+  
+</div>

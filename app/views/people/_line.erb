@@ -1,0 +1,9 @@
+<%= turbo_frame_tag "__#{ dom_id(person) }" do  %>
+  <div class='row hg-row' data-id='<%= person.id %>' data-edit='false'>
+    <%= render partial: 'people/show', locals: { person: person } %>
+  </div>
+<% end %>
+
+
+
+

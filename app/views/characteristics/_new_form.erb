@@ -1,0 +1,13 @@
+<%= turbo_frame_tag "__characteristic-new" do %>
+  <h3>
+    New Characteristic
+  </h3>
+  <%= form_with model:  characteristic,
+         url: characteristics_path, method: :post do  |f| %>
+    <%=  render partial: "characteristics/form",
+locals: { characteristic: characteristic, f: f} %>
+
+
+<% end %>
+
+<% end %>

@@ -1,0 +1,46 @@
+<%= turbo_frame_tag "__characteristics-list"   do %>
+
+  <div class="container ">
+    
+      <h4>
+        CHARACTERISTICS
+      </h4>
+    
+
+    
+    <%= render partial: "characteristics/new_button", locals: {} %><br />
+    
+
+    
+      
+        <div class="row hg-row ">
+          <div class='col-sm-1 hg-heading-row heading--characteristic--name' >Name</div>
+
+          
+
+          
+
+          <div class=' scaffold-col-heading scaffold-col-heading-buttons col-sm-1' >
+          </div>
+        </div>
+      
+      
+      <% if characteristics.empty? %>
+    <div>
+        None
+    </div>
+      <% end %>
+      <% characteristics.each do |characteristic| %>
+        <%= render partial: 'characteristics/line', locals: {characteristic: characteristic}
+            .merge(defined?(nested_for) ? {nested_for: nested_for} : {})
+      
+        %>
+      <% end %>
+      
+    <% if characteristics.respond_to?(:total_pages) %><%= paginate(characteristics) %> <% end %>
+  
+
+
+  
+  </div>
+<% end %>

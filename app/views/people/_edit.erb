@@ -1,0 +1,14 @@
+<%= turbo_frame_tag "__#{dom_id(person)}" do  %>
+<div class="cell editable" style="position: relative;">
+  <% if person.errors.any? %>
+  <%= render(partial: "errors", locals: {resource: person }) %>
+  <% end %>
+  <h2>Editing <%= person.name %></h2>
+  <%= form_with model: person,
+   url: person_path(person) do |f| %>
+    <%=  render partial: "people/form", locals: {:person => person, f: f} %>
+  
+  <% end %>
+  
+</div>
+<% end %>

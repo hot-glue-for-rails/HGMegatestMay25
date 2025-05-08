@@ -1,0 +1,13 @@
+<%= turbo_frame_tag "__person-new" do %>
+  <h3>
+    New Person
+  </h3>
+  <%= form_with model:  person,
+         url: people_path, method: :post do  |f| %>
+    <%=  render partial: "people/form",
+locals: { person: person, f: f} %>
+
+
+<% end %>
+
+<% end %>

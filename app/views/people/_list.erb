@@ -1,0 +1,47 @@
+<%= turbo_frame_tag "__people-list"   do %>
+
+  <div class="container ">
+    
+      <h4>
+        PEOPLE
+      </h4>
+    
+
+    
+    <%= render partial: "people/new_button", locals: {} %><br />
+    
+
+    
+      
+        <div class="row hg-row ">
+          <div class='col-sm-1 hg-heading-row heading--person--name' >Name</div>
+<div class='col-sm-1 hg-heading-row heading--person--characteristics' >Characteristics</div>
+
+          
+
+          
+
+          <div class=' scaffold-col-heading scaffold-col-heading-buttons col-sm-1' >
+          </div>
+        </div>
+      
+      
+      <% if people.empty? %>
+    <div>
+        None
+    </div>
+      <% end %>
+      <% people.each do |person| %>
+        <%= render partial: 'people/line', locals: {person: person}
+            .merge(defined?(nested_for) ? {nested_for: nested_for} : {})
+      
+        %>
+      <% end %>
+      
+    <% if people.respond_to?(:total_pages) %><%= paginate(people) %> <% end %>
+  
+
+
+  
+  </div>
+<% end %>

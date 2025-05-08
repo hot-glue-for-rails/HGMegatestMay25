@@ -1,0 +1,19 @@
+<% if @characteristic.errors.none? %>
+  <%= turbo_stream.replace "__characteristics-list" + "" do %>
+  <%= render partial: "list", locals: {characteristics: @characteristics } %>
+
+<% end %>
+  <% end %>
+<!-- parental updated -->
+
+<!-- errors -->
+  <%= turbo_stream.replace "__characteristic-new" do %>
+  <% if @characteristic.errors.none? %>
+  <%= render partial: "new_button", locals: {} %>
+  <% else %>
+  <%= render partial: "new_form", locals: {characteristic: @characteristic} %>
+  <% end %>
+  <% end %>
+  <%= turbo_stream.replace "flash_notices" do %>
+  <%= render partial: "layouts/flash_notices", locals: {resource: @characteristic} %>
+<% end %>

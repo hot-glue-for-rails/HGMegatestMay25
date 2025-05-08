@@ -1,0 +1,9 @@
+
+
+<%= turbo_stream.update "__characteristics-list" + "" do %>
+  <%= render partial: "list", locals: {characteristics: @characteristics } %>
+<% end %>
+
+<%= turbo_stream.update "flash_notices" do %>
+<%= render partial: "layouts/flash_notices", locals: {resource: @characteristic} %>
+<% end %>

@@ -1,0 +1,19 @@
+<% if @person.errors.none? %>
+  <%= turbo_stream.replace "__people-list" + "" do %>
+  <%= render partial: "list", locals: {people: @people } %>
+
+<% end %>
+  <% end %>
+<!-- parental updated -->
+
+<!-- errors -->
+  <%= turbo_stream.replace "__person-new" do %>
+  <% if @person.errors.none? %>
+  <%= render partial: "new_button", locals: {} %>
+  <% else %>
+  <%= render partial: "new_form", locals: {person: @person} %>
+  <% end %>
+  <% end %>
+  <%= turbo_stream.replace "flash_notices" do %>
+  <%= render partial: "layouts/flash_notices", locals: {resource: @person} %>
+<% end %>

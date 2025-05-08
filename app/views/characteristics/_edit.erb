@@ -1,0 +1,14 @@
+<%= turbo_frame_tag "__#{dom_id(characteristic)}" do  %>
+<div class="cell editable" style="position: relative;">
+  <% if characteristic.errors.any? %>
+  <%= render(partial: "errors", locals: {resource: characteristic }) %>
+  <% end %>
+  <h2>Editing <%= characteristic.name %></h2>
+  <%= form_with model: characteristic,
+   url: characteristic_path(characteristic) do |f| %>
+    <%=  render partial: "characteristics/form", locals: {:characteristic => characteristic, f: f} %>
+  
+  <% end %>
+  
+</div>
+<% end %>

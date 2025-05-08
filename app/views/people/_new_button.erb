@@ -1,0 +1,5 @@
+<%= turbo_frame_tag "__person-new" do %>
+  <div>
+    <%= link_to "New Person",  new_person_path, disable_with: "Loading...", class: "new-person-button btn btn-primary pull-right  " %>
+  </div>
+<% end %>
