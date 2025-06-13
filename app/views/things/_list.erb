@@ -16,7 +16,11 @@
         <div class="row hg-row ">
           <div class='col-sm-1 hg-heading-row heading--thing--person_id' >Person</div>
 <div class='col-sm-1 hg-heading-row heading--thing--bbb' >Bbb</div>
-<div class='col-sm-1 hg-heading-row heading--thing--ccc' >Ccc</div>
+<div class='col-sm-1 hg-heading-row heading--thing--ccc' >
+  <% if policy(@things).ccc_able? %>
+  Ccc
+  <% end %>
+</div>
 <div class='col-sm-1 hg-heading-row heading--thing--ddd' >Ddd</div>
 <div class='col-sm-1 hg-heading-row heading--thing--eee' >Eee</div>
 <div class='col-sm-1 hg-heading-row heading--thing--fff' >Fff</div>

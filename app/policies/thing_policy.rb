@@ -3,7 +3,7 @@ class ThingPolicy  < ApplicationPolicy
 
   def initialize(user, thing)
     @user = user
-    @thing = thing
+    @thing = thing if thing.is_a? Thing
   end
 
   def update?
@@ -15,7 +15,12 @@ class ThingPolicy  < ApplicationPolicy
   end
 
   def ccc_able?
-    !!thing.bbb
+    if thing.is_a? Thing
+      !!thing.bbb
+    else
+      # ask me later
+      false
+    end
   end
 
 
