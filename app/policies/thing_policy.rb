@@ -18,8 +18,7 @@ class ThingPolicy  < ApplicationPolicy
     if thing.is_a? Thing
       !!thing.bbb
     else
-      # ask me later
-      false
+      current_user.is_admin?
     end
   end
 
