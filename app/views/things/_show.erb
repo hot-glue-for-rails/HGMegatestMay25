@@ -1,16 +1,16 @@
 <div class='hg-col col-sm-1 thing--person_id'> <%= thing.person.try(:name) || '<span class="content ">MISSING</span>'.html_safe %></div>
-<div class='hg-col col-sm-1 thing--bbb'> <% if thing.bbb.nil? %>
+<div class='hg-col col-sm-1 thing--bbb'> <% if   policy(thing).bbb_able? %><% if thing.bbb.nil? %>
         <span class=''>MISSING</span>
     <% elsif thing.bbb %>
       YES
     <% else %>
       NO
-    <% end %></div>
-<div class='hg-col col-sm-1 thing--ccc'> <% unless thing.ccc.nil? %>
+    <% end %><% end %></div>
+<div class='hg-col col-sm-1 thing--ccc'> <% if   policy(thing).ccc_able? %><% unless thing.ccc.nil? %>
       <%= thing.ccc %>
     <% else %>
       <span class=''>MISSING</span>
-    <% end %></div>
+    <% end %><% end %></div>
 <div class='hg-col col-sm-1 thing--ddd'> <% unless thing.ddd.nil? %>
   <%= thing.ddd.in_time_zone(current_timezone).strftime('%m/%d/%Y @ %l:%M %p %Z') %>
   <% else %>

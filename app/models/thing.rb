@@ -1,8 +1,37 @@
+# == Schema Information
+#
+# Table name: things
+#
+#  id         :bigint           not null, primary key
+#  person_id  :integer
+#  bbb        :boolean
+#  ccc        :date
+#  ddd        :datetime
+#  eee        :enum
+#  fff        :float
+#  iii        :integer
+#  sss        :string
+#  ttt        :text
+#  mmm        :time
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
 class Thing < ApplicationRecord
+
+  def person_idable?
+    !bbb
+  end
+
   enum eee: {  'one': 'one',
                     'two': 'two',
-                    'one': 'one',
-                    'one': 'one',}
+                    'three': 'three',
+                    'four': 'four',
+                    'five': 'five',
+                    'six': 'six',
+                    'seven': 'seven',
+                    'eight': 'eight',
+                    'nine': 'nine',
+                    'ten': 'ten',}
 
 
   belongs_to :person
@@ -21,10 +50,6 @@ class Thing < ApplicationRecord
       'ten': '10'
     }
   end
-
-  has_many :things, dependent: :destroy
-
-
 
 
   def to_label

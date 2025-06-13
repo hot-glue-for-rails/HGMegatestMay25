@@ -81,3 +81,7 @@ gem "hot-glue", path: "../../hot-glue-private"
 gem "sassc-rails", "~> 2.1"
 
 gem "cssbundling-rails", "~> 1.4"
+
+gem "pundit", "~> 2.5"
+
+gem "devise", "~> 4.9"
